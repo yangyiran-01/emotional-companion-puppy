@@ -44,3 +44,11 @@ Figma 原型连线、FigJam 实现状态同步、真实 AI 联调与最终用户
 ## 仓库命名更新（2026-11-17）
 
 用户随后要求将仓库名称改为“情绪陪伴小狗”的英文，更新为 **Emotional Companion Puppy**，GitHub 名称使用 `emotional-companion-puppy`。已同步 README、提交状态与 GitHub 准备说明；尚无在线仓库，因此没有声称完成 GitHub 远程重命名。应用品牌仍为 PawPal。
+
+## GitHub 仓库接入（2026-11-17）
+
+用户提供公开仓库 `https://github.com/yangyiran-01/emotional-companion-puppy` 并授权上传代码。检查远程 main 时，仅有初始 README 提交 `6ac4c55`；GitHub 元数据确认该仓库为 public。
+
+本地 origin 设为该实际地址，获取远程历史并合并。README 的 add/add 冲突通过整合远程简短介绍与本地完整运行文档解决；保留远程初始提交，不使用强制推送改写历史。README、仓库说明和提交清单同步实际链接，Demo、真实 AI 待联调和用户验收状态继续如实标明。
+
+上传内容经过文件清单和凭据模式检查，不包含 `.env`、node_modules、dist、私人课程材料或浏览器会话数据。仓库用于源码与开发证据分享，不能等同于用户最终验收或已验证的在线应用托管。

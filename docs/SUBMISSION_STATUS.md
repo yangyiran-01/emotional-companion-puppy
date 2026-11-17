@@ -7,7 +7,7 @@ Last updated: 17 November 2026, Europe/London. This is a checklist, not the Assi
 | Developed system or simulation | Working local Demo; real UI, state changes and suggestion decisions; reply text simulated |
 | System diagram | `architecture-current.svg` and `ARCHITECTURE.md`; actual modules, flows and status labels |
 | Two or three illustrated interactions | Three SVG storyboards, ten panels, HTML viewer and executable replay data in `storyboards/` |
-| Public repository and README | README prepared; repository name Emotional Companion Puppy (`emotional-companion-puppy`); publication requires GitHub connection |
+| Public repository and README | [Emotional Companion Puppy](https://github.com/yangyiran-01/emotional-companion-puppy) and its [README](https://github.com/yangyiran-01/emotional-companion-puppy/blob/main/README.md); main is the development review branch |
 | Submitted commit or release | Local review snapshot is not final acceptance; final submitted version has not been selected |
 | Development record | `DEVELOPMENT_RECORD.md`, test results and real Git history; no backdated history |
 | AI assistance and resource attribution | README examples, `ASSET_PROVENANCE.md`, `THIRD_PARTY_NOTICES.md` |
@@ -33,4 +33,4 @@ git rev-parse HEAD
 git remote -v
 ```
 
-The local tag `demo-evidence-2026-11-17` identifies the evidence-review snapshot once created; verify it with `git show --no-patch demo-evidence-2026-11-17`. It does not mean final project acceptance. After publication, record the actual public repository URL and the commit selected for submission; do not insert a guessed link.
+The tag [`demo-evidence-2026-11-17`](https://github.com/yangyiran-01/emotional-companion-puppy/tree/demo-evidence-2026-11-17) identifies the original evidence-review snapshot. Verify its local version with `git show --no-patch demo-evidence-2026-11-17`. Later naming and repository-integration commits are visible in [the main branch history](https://github.com/yangyiran-01/emotional-companion-puppy/commits/main/). These are review versions, not final user acceptance. Choose and record the exact submitted commit only when the submission scope is confirmed.

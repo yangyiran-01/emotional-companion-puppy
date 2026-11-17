@@ -1,13 +1,13 @@
-# PawPal — Your AI Emotional Companion
+# Emotional Companion Puppy — PawPal
 
-**Prose Word Count: 768**
+**Prose Word Count: 784**
 
 Count includes headings, list text and table text; excludes this notice, fenced code, inline code, URLs and Markdown syntax. Run `npm run readme:count` to update.
 
 <!-- prose-start -->
 ## Project Overview
 
-PawPal is a Human–AI Interaction course prototype exploring emotional companionship, user autonomy and offline human relationships. It has three core features: emotional chat, a puppy with four response expressions, and optional social suggestions.
+PawPal is a Human–AI Interaction course prototype. It combines supportive chat, four emotional expressions, and optional offline social suggestions. Users can accept or decline suggestions without pressure. The current Demo uses clearly labelled scripted replies; real AI integration awaits testing. PawPal explores emotional companionship while respecting user choice and offline relationships.
 
 ## Project Status
 
@@ -15,7 +15,7 @@ PawPal is a Human–AI Interaction course prototype exploring emotional companio
 
 The Figma UI exists. Prototype connections and the implementation update in FigJam are blocked by tool quota. Use the [current architecture](docs/ARCHITECTURE.md), rather than the earlier planned Figma diagram, to inspect the implemented system.
 
-Public GitHub publication is pending connection. Repository name: **Emotional Companion Puppy** (`emotional-companion-puppy`). Local Git history records actual snapshots only. The [submission checklist](docs/SUBMISSION_STATUS.md) distinguishes the review version from a final submitted version.
+Public repository: [Emotional Companion Puppy](https://github.com/yangyiran-01/emotional-companion-puppy). Source and development evidence are versioned on the main branch. Git history records actual snapshots only. The [submission checklist](docs/SUBMISSION_STATUS.md) distinguishes the review version from a final submitted version.
 
 ## Technology Stack
 
@@ -102,7 +102,7 @@ See [asset provenance](docs/ASSET_PROVENANCE.md) for tools and reuse acknowledge
 - Only twelve recent messages accompany a request. Chat and refusal choices live in tab memory; refresh, reset or mode change clears them. No chat database, browser persistence or analytics is used.
 - Demo text is processed locally. AI text goes to OpenAI with `store: false`; [provider retention policies](https://developers.openai.com/api/docs/guides/your-data) still apply.
 - Real AI, physical phones, cross-browser accessibility and complete browser offline recovery remain unverified. Current use is a localhost prototype.
-- Course lecture mapping, A1 evidence, public repository publication and final user acceptance remain pending. Details are in the submission checklist.
+- Course lecture mapping, A1 evidence and final user acceptance remain pending. Details are in the submission checklist.
 
 ## Figma Design Links
 
