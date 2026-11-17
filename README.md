@@ -1,6 +1,6 @@
 # PawPal — Your AI Emotional Companion
 
-**Prose Word Count: 766**
+**Prose Word Count: 768**
 
 Count includes headings, list text and table text; excludes this notice, fenced code, inline code, URLs and Markdown syntax. Run `npm run readme:count` to update.
 
@@ -15,7 +15,7 @@ PawPal is a Human–AI Interaction course prototype exploring emotional companio
 
 The Figma UI exists. Prototype connections and the implementation update in FigJam are blocked by tool quota. Use the [current architecture](docs/ARCHITECTURE.md), rather than the earlier planned Figma diagram, to inspect the implemented system.
 
-Public GitHub publication is pending connection. Requested repository name: **Yoyo-project**. Local Git history records actual snapshots only. The [submission checklist](docs/SUBMISSION_STATUS.md) distinguishes the review version from a final submitted version.
+Public GitHub publication is pending connection. Repository name: **Emotional Companion Puppy** (`emotional-companion-puppy`). Local Git history records actual snapshots only. The [submission checklist](docs/SUBMISSION_STATUS.md) distinguishes the review version from a final submitted version.
 
 ## Technology Stack
 

@@ -40,3 +40,7 @@ Figma 原型连线、FigJam 实现状态同步、真实 AI 联调与最终用户
 - 新增证据索引、已核实来源清单与提交状态表。课程概念、A1 文献和反馈的具体对应仍需本地材料或用户确认，没有把通用来源冒充课件内容。
 - 用户要求仓库名为“Yoyo project”，拟使用 GitHub 可接受的 `Yoyo-project`；应用品牌仍为 PawPal。公开发布取决于可用 GitHub 连接，本地材料不使用猜测的仓库地址。
 - 版本记录采用当前真实快照，不回填或伪造此前的 commit。首个本地提交与 `demo-evidence-2026-11-17` 标签用于评审，不表示用户验收通过或最终提交。
+
+## 仓库命名更新（2026-11-17）
+
+用户随后要求将仓库名称改为“情绪陪伴小狗”的英文，更新为 **Emotional Companion Puppy**，GitHub 名称使用 `emotional-companion-puppy`。已同步 README、提交状态与 GitHub 准备说明；尚无在线仓库，因此没有声称完成 GitHub 远程重命名。应用品牌仍为 PawPal。

@@ -7,7 +7,7 @@ Last updated: 17 November 2026, Europe/London. This is a checklist, not the Assi
 | Developed system or simulation | Working local Demo; real UI, state changes and suggestion decisions; reply text simulated |
 | System diagram | `architecture-current.svg` and `ARCHITECTURE.md`; actual modules, flows and status labels |
 | Two or three illustrated interactions | Three SVG storyboards, ten panels, HTML viewer and executable replay data in `storyboards/` |
-| Public repository and README | README prepared; requested remote repository name `Yoyo-project`; publication requires GitHub connection |
+| Public repository and README | README prepared; repository name Emotional Companion Puppy (`emotional-companion-puppy`); publication requires GitHub connection |
 | Submitted commit or release | Local review snapshot is not final acceptance; final submitted version has not been selected |
 | Development record | `DEVELOPMENT_RECORD.md`, test results and real Git history; no backdated history |
 | AI assistance and resource attribution | README examples, `ASSET_PROVENANCE.md`, `THIRD_PARTY_NOTICES.md` |
