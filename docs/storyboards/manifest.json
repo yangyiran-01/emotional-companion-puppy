@@ -1,0 +1,26 @@
+[
+  {
+    "id": "01-pressure",
+    "title": "01 · A demanding study day",
+    "file": "01-pressure.svg",
+    "panels": 3,
+    "width": 1240,
+    "height": 968
+  },
+  {
+    "id": "02-happy",
+    "title": "02 · A little win worth sharing",
+    "file": "02-happy.svg",
+    "panels": 3,
+    "width": 1240,
+    "height": 968
+  },
+  {
+    "id": "03-loneliness",
+    "title": "03 · Connection, on the user’s terms",
+    "file": "03-loneliness.svg",
+    "panels": 4,
+    "width": 1240,
+    "height": 2060
+  }
+]

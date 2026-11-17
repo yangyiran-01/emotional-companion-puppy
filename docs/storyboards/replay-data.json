@@ -1,0 +1,146 @@
+{
+  "kind": "Synthetic Demo replay, not observed user data",
+  "generatedFrom": "server/conversation.ts and src/components/Pet.tsx",
+  "turns": [
+    {
+      "id": "pressure",
+      "request": {
+        "message": "My assignments keep piling up. I’m exhausted.",
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hi, I’m PawPal. Want to tell me a little about your day?"
+          }
+        ],
+        "socialChoice": "available",
+        "mode": "demo"
+      },
+      "response": {
+        "reply": "That sounds like a lot to carry. When the assignments keep coming, it can be hard to catch your breath. What feels heaviest today?",
+        "emotion": "Concerned",
+        "emotionReason": "DISTRESS_CUE",
+        "source": "demo",
+        "suggestion": null,
+        "socialChoice": "available"
+      }
+    },
+    {
+      "id": "pressure-followup",
+      "request": {
+        "message": "It’s all due tomorrow.",
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hi, I’m PawPal. Want to tell me a little about your day?"
+          },
+          {
+            "role": "user",
+            "content": "My assignments keep piling up. I’m exhausted."
+          },
+          {
+            "role": "assistant",
+            "content": "That sounds like a lot to carry. When the assignments keep coming, it can be hard to catch your breath. What feels heaviest today?"
+          }
+        ],
+        "socialChoice": "available",
+        "mode": "demo"
+      },
+      "response": {
+        "reply": "It sounds like this has been weighing on you. We don’t have to solve it all at once. Which part feels hardest to start right now?",
+        "emotion": "Concerned",
+        "emotionReason": "FOLLOWUP_TO_DISTRESS",
+        "source": "demo",
+        "suggestion": null,
+        "socialChoice": "available"
+      }
+    },
+    {
+      "id": "happy",
+      "request": {
+        "message": "I finally finished my project — and got lovely feedback!",
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hi, I’m PawPal. Want to tell me a little about your day?"
+          }
+        ],
+        "socialChoice": "available",
+        "mode": "demo"
+      },
+      "response": {
+        "reply": "That sounds like a moment worth enjoying! Your effort has paid off, and it’s lovely to hear your good news. What part are you proudest of?",
+        "emotion": "Happy",
+        "emotionReason": "POSITIVE_CUE",
+        "source": "demo",
+        "suggestion": null,
+        "socialChoice": "available"
+      }
+    },
+    {
+      "id": "loneliness",
+      "request": {
+        "message": "I feel lonely. I haven’t seen my friends in weeks.",
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hi, I’m PawPal. Want to tell me a little about your day?"
+          }
+        ],
+        "socialChoice": "available",
+        "mode": "demo"
+      },
+      "response": {
+        "reply": "That sounds lonely. Missing someone to share the little parts of your day with can really ache. When has that feeling been strongest lately?",
+        "emotion": "Concerned",
+        "emotionReason": "LONELINESS_CUE",
+        "source": "demo",
+        "suggestion": {
+          "id": "loneliness-card",
+          "title": "A little connection, if you’d like",
+          "body": "A short walk or a coffee with someone familiar. Only if it feels right — there’s no hurry.",
+          "nextStep": "Pick one person you feel comfortable with. You could write: “Fancy a short walk or coffee this week?” Nothing is sent. You decide whether and when.",
+          "declinedFeedback": "Of course. Your pace. We can keep talking. I won’t suggest another catch-up in this conversation unless you ask."
+        },
+        "socialChoice": "offered"
+      }
+    },
+    {
+      "id": "after-refusal",
+      "request": {
+        "message": "I still feel lonely tonight.",
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hi, I’m PawPal. Want to tell me a little about your day?"
+          },
+          {
+            "role": "user",
+            "content": "I feel lonely. I haven’t seen my friends in weeks."
+          },
+          {
+            "role": "assistant",
+            "content": "That sounds lonely. Missing someone to share the little parts of your day with can really ache. When has that feeling been strongest lately?"
+          },
+          {
+            "role": "assistant",
+            "content": "Of course. Your pace. We can keep talking. I won’t suggest another catch-up in this conversation unless you ask."
+          }
+        ],
+        "socialChoice": "declined",
+        "mode": "demo"
+      },
+      "response": {
+        "reply": "It sounds like that lonely feeling is still there. Quiet moments can make it feel more noticeable. We can stay with how you feel, without rushing to do anything. What is tonight like for you?",
+        "emotion": "Concerned",
+        "emotionReason": "LONELINESS_CUE",
+        "source": "demo",
+        "suggestion": null,
+        "socialChoice": "declined"
+      }
+    }
+  ],
+  "localDecisions": {
+    "accepted": "Pick one person you feel comfortable with. You could write: “Fancy a short walk or coffee this week?” Nothing is sent. You decide whether and when.",
+    "declined": "Of course. Your pace. We can keep talking. I won’t suggest another catch-up in this conversation unless you ask."
+  }
+}

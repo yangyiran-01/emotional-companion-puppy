@@ -1,0 +1,45 @@
+{
+  "name": "pawpal",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c magenta,cyan \"tsx watch server/index.ts\" \"vite --host 127.0.0.1\"",
+    "build": "tsc --noEmit && vite build",
+    "start": "tsx server/index.ts",
+    "test": "tsx --test tests/*.test.ts",
+    "check": "npm run test && npm run build",
+    "readme:count": "node scripts/readme-count.mjs",
+    "readme:check": "node --test scripts/readme-count.test.mjs && node scripts/readme-count.mjs --check",
+    "evidence:build": "node --import tsx scripts/build-storyboards.tsx"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.2.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.0.0",
+    "helmet": "^8.1.0",
+    "lucide-react": "^0.468.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.0",
+    "@testing-library/react": "^16.3.3",
+    "@types/express": "^5.0.0",
+    "@types/jsdom": "^30.0.0",
+    "@types/node": "^22.18.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "concurrently": "^9.2.0",
+    "jsdom": "^27.0.1",
+    "tailwindcss": "^4.1.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0",
+    "vite": "^7.1.0"
+  }
+}

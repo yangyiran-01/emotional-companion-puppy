@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1040" viewBox="0 0 1440 1040" role="img" aria-labelledby="title desc">
+<title id="title">PawPal current system architecture</title><desc id="desc">One React browser application and one Express server. Safety bypasses normal replies. Demo text is simulated; the OpenAI adapter is implemented but live validation remains planned.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9" fill="#85729e"/></marker></defs>
+<style>text{font-family:Inter,Arial,sans-serif;fill:#40364d} .h{font-size:24px;font-weight:700}.label{font-size:17px;font-weight:600}.small{font-size:15px}.tiny{font-size:14px}.box{fill:#fff9fd;stroke:#baa2da;stroke-width:2}.line{fill:none;stroke:#85729e;stroke-width:2;marker-end:url(#arrow)}.return{stroke-dasharray:7 6}</style>
+<rect width="1440" height="1040" fill="#faf5ff"/><text x="48" y="58" class="h">PawPal · Current implementation</text><text x="48" y="88" class="small">2026-11-17 · Code reflects the running Demo · User acceptance pending</text>
+<rect x="40" y="120" width="1360" height="242" rx="24" fill="#efe6fb" stroke="#c8b6e6"/>
+<text x="64" y="155" class="label">BROWSER · React · tab memory only</text>
+<rect x="72" y="187" width="330" height="110" rx="16" class="box"/><text x="94" y="218" class="label">Frontend UI</text><text x="94" y="246" class="small">Chat, input, loading, error, cards</text><text x="94" y="275" class="tiny">Implemented · src/App.tsx</text>
+<rect x="548" y="187" width="350" height="110" rx="16" class="box"/><text x="570" y="218" class="label">Conversation Manager</text><text x="570" y="246" class="small">Context, retry, mode, choice</text><text x="570" y="275" class="tiny">Implemented · useConversation.ts</text>
+<rect x="1038" y="187" width="330" height="110" rx="16" class="box"/><text x="1060" y="218" class="label">Pet State Controller</text><text x="1060" y="246" class="small">Shared SVG + four expressions</text><text x="1060" y="275" class="tiny">Implemented · Pet.tsx + CSS</text>
+<path d="M402 232H548" class="line"/><text x="415" y="218" class="tiny">Text / decision</text><path d="M898 232H1038" class="line"/><text x="920" y="218" class="tiny">Emotion</text>
+<text x="72" y="326" class="small">Accept / Not now: local feedback only</text><text x="72" y="349" class="tiny">No external social operation</text>
+<path d="M720 297V403" class="line"/><text x="739" y="388" class="tiny">POST /api/chat · current message + ≤12 recent messages + mode + choice</text>
+<rect x="40" y="414" width="1360" height="472" rx="24" fill="#fff2f9" stroke="#ebc2dd"/>
+<text x="64" y="451" class="label">SERVER · One Express process · no chat database or content logs</text>
+<rect x="488" y="474" width="464" height="72" rx="14" class="box"/><text x="511" y="502" class="label">Validation + Safety routing · Implemented</text><text x="511" y="529" class="tiny">Schema, size, origin, rate limit; current + recent risk cues</text>
+<path d="M488 510H352V596" class="line"/><text x="210" y="565" class="tiny">Safety signal</text>
+<rect x="72" y="596" width="330" height="110" rx="16" class="box"/><text x="94" y="629" class="label">Fixed safety guidance</text><text x="94" y="657" class="small">No ordinary social card / model</text><text x="94" y="684" class="tiny">Implemented · conversation.ts</text>
+<path d="M720 546V596" class="line"/><text x="739" y="577" class="tiny">Normal route</text>
+<rect x="548" y="596" width="350" height="110" rx="16" class="box"/><text x="570" y="629" class="label">Emotion Classifier</text><text x="570" y="657" class="small">EN / ZH cues + recent context</text><text x="570" y="684" class="tiny">Implemented · emotion.ts</text>
+<path d="M898 650H1038" class="line"/><text x="918" y="633" class="tiny">Cues</text>
+<rect x="1038" y="596" width="330" height="110" rx="16" class="box"/><text x="1060" y="629" class="label">Social Suggestion Logic</text><text x="1060" y="657" class="small">Loneliness + context + choice</text><text x="1060" y="684" class="tiny">Implemented · social.ts</text>
+<path d="M1203 706V761H952" class="line"/><text x="1030" y="746" class="tiny">Optional card or none</text>
+<rect x="488" y="731" width="464" height="110" rx="16" class="box"/><text x="511" y="764" class="label">AI Response Generator</text><text x="511" y="792" class="small">Explicit Demo / AI routing; no silent fallback</text><text x="511" y="819" class="tiny">Implemented · conversation.ts + ai adapters</text>
+<path d="M488 790H440V270H548" class="line return"/><text x="250" y="777" class="tiny">Reply + emotion + card</text>
+<path d="M72 650H58V175H590V187" class="line return"/>
+<path d="M620 841V916H400" class="line"/><path d="M820 841V916H1030" class="line"/>
+<rect x="72" y="916" width="440" height="88" rx="16" fill="#fff0cf" stroke="#d0b070"/><text x="94" y="947" class="label">Demo templates · Simulated replies</text><text x="94" y="976" class="small">Local, context-aware examples · no model call</text>
+<rect x="1010" y="916" width="358" height="88" rx="16" fill="#e9ddff" stroke="#aa8cdd"/><text x="1032" y="945" class="label">OpenAI Responses API</text><text x="1032" y="973" class="tiny">Adapter Implemented · live test Planned</text>
+<path d="M512 953H540V858H680V841" class="line return"/><path d="M1010 980H980V870H760V841" class="line return"/>
+<text x="565" y="968" class="tiny">Solid: data / control →</text><text x="565" y="993" class="tiny">Dashed: result return →</text>
+</svg>

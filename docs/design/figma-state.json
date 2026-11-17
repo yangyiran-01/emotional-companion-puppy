@@ -1,0 +1,364 @@
+{
+  "date": "2026-11-17",
+  "fileKey": "bSwc6WMJZDteksbkpXjq9t",
+  "status": "Phase 2 partial; prototype blocked by Starter MCP quota",
+  "foundation": {
+    "pages": {
+      "ui": "3:636",
+      "foundations": "0:1"
+    },
+    "petSet": "3:290",
+    "pets": {
+      "Calm": "3:52",
+      "Happy": "3:106",
+      "Concerned": "3:165",
+      "Encouraging": "3:225"
+    },
+    "buttonSet": "3:315",
+    "buttons": {
+      "Kind=Primary, State=Default": "3:291",
+      "Kind=Primary, State=Hover": "3:293",
+      "Kind=Primary, State=Active": "3:295",
+      "Kind=Primary, State=Focus": "3:297",
+      "Kind=Primary, State=Disabled": "3:299",
+      "Kind=Primary, State=Loading": "3:301",
+      "Kind=Secondary, State=Default": "3:303",
+      "Kind=Secondary, State=Hover": "3:305",
+      "Kind=Secondary, State=Active": "3:307",
+      "Kind=Secondary, State=Focus": "3:309",
+      "Kind=Secondary, State=Disabled": "3:311",
+      "Kind=Secondary, State=Loading": "3:313"
+    },
+    "labelKey": "Label#3:0",
+    "inputSet": "3:324",
+    "inputs": {
+      "Default": "3:316",
+      "Focus": "3:318",
+      "Disabled": "3:320",
+      "Error": "3:322"
+    },
+    "valueKey": "Value#3:13",
+    "messageSet": "3:331",
+    "messages": {
+      "PawPal": "3:325",
+      "You": "3:328"
+    },
+    "messageKey": "Message#3:18",
+    "review": "3:332",
+    "variables": {
+      "bg": "VariableID:3:5",
+      "surface": "VariableID:3:7",
+      "white": "VariableID:3:9",
+      "purple": "VariableID:3:11",
+      "pink": "VariableID:3:13",
+      "primary": "VariableID:3:15",
+      "hover": "VariableID:3:17",
+      "active": "VariableID:3:19",
+      "text": "VariableID:3:21",
+      "muted": "VariableID:3:23",
+      "line": "VariableID:3:25",
+      "lavender": "VariableID:3:27",
+      "blush": "VariableID:3:29",
+      "disabled": "VariableID:3:31",
+      "danger": "VariableID:3:33",
+      "space/4": "VariableID:3:34",
+      "space/8": "VariableID:3:35",
+      "space/12": "VariableID:3:36",
+      "space/16": "VariableID:3:37",
+      "space/24": "VariableID:3:38",
+      "space/32": "VariableID:3:39",
+      "space/48": "VariableID:3:40",
+      "radius/12": "VariableID:3:41",
+      "radius/20": "VariableID:3:42",
+      "radius/28": "VariableID:3:43",
+      "radius/pill": "VariableID:3:44"
+    },
+    "styles": {
+      "Display": "S:aea62736747e1d36a4d8e605d545fbdfe5272b44,",
+      "Heading": "S:4757e3545c481e47fd36045dd1b49619141bbd60,",
+      "Subheading": "S:54e25565bf48b452a17703937603fc9daee1c2ac,",
+      "Body": "S:8adabff11519fe79cd86e0fb2c363480e55bd26c,",
+      "Label": "S:8393e1b29949c2b79d7770dfd3d432cdef639a51,",
+      "Caption": "S:e2b882311140b41a86302f72e29ddad045f15425,"
+    },
+    "shadow": "S:202cc83f862adb66e8e3125328e10fa38e8c54d4,",
+    "collections": [
+      "VariableCollectionId:3:2",
+      "VariableCollectionId:3:3"
+    ],
+    "counts": {
+      "pets": 4,
+      "buttons": 12,
+      "inputs": 4,
+      "messages": 2
+    }
+  },
+  "ui": {
+    "frames": {
+      "Desktop/Main": "4:2",
+      "Desktop/Happy": "4:108",
+      "Desktop/Concerned": "4:209",
+      "Desktop/Encouraging": "4:313",
+      "Desktop/Lonely": "4:420",
+      "Desktop/Accepted": "4:530",
+      "Desktop/Declined": "4:641",
+      "Desktop/Followup": "4:740",
+      "Desktop/Loading": "4:842",
+      "Desktop/Error": "4:939",
+      "Mobile/Main": "4:1036",
+      "Mobile/Happy": "4:1127",
+      "Mobile/Concerned": "4:1213",
+      "Mobile/Encouraging": "4:1302",
+      "Mobile/Lonely": "4:1394",
+      "Mobile/Accepted": "4:1489",
+      "Mobile/Declined": "4:1585",
+      "Mobile/Followup": "4:1669",
+      "Mobile/Loading": "4:1756",
+      "Mobile/Error": "4:1838"
+    },
+    "actions": {
+      "Desktop/Main": {
+        "reset": "4:10",
+        "Concerned": "4:92",
+        "Happy": "4:94",
+        "Lonely": "4:97",
+        "Encouraging": "4:99",
+        "send": "4:104"
+      },
+      "Desktop/Happy": {
+        "reset": "4:116",
+        "send": "4:205"
+      },
+      "Desktop/Concerned": {
+        "reset": "4:217",
+        "followup": "4:304",
+        "send": "4:309"
+      },
+      "Desktop/Encouraging": {
+        "reset": "4:321",
+        "send": "4:416"
+      },
+      "Desktop/Lonely": {
+        "reset": "4:428",
+        "accept": "4:519",
+        "decline": "4:521",
+        "send": "4:526"
+      },
+      "Desktop/Accepted": {
+        "reset": "4:538",
+        "send": "4:637"
+      },
+      "Desktop/Declined": {
+        "reset": "4:649",
+        "send": "4:736"
+      },
+      "Desktop/Followup": {
+        "reset": "4:748",
+        "send": "4:838"
+      },
+      "Desktop/Loading": {
+        "reset": "4:850",
+        "send": "4:935"
+      },
+      "Desktop/Error": {
+        "reset": "4:947",
+        "retry": "4:1027",
+        "send": "4:1032"
+      },
+      "Mobile/Main": {
+        "reset": "4:1040",
+        "Concerned": "4:1112",
+        "Happy": "4:1114",
+        "Lonely": "4:1117",
+        "Encouraging": "4:1119",
+        "send": "4:1124"
+      },
+      "Mobile/Happy": {
+        "reset": "4:1131",
+        "send": "4:1210"
+      },
+      "Mobile/Concerned": {
+        "reset": "4:1217",
+        "followup": "4:1294",
+        "send": "4:1299"
+      },
+      "Mobile/Encouraging": {
+        "reset": "4:1306",
+        "send": "4:1391"
+      },
+      "Mobile/Lonely": {
+        "reset": "4:1398",
+        "accept": "4:1479",
+        "decline": "4:1481",
+        "send": "4:1486"
+      },
+      "Mobile/Accepted": {
+        "reset": "4:1493",
+        "send": "4:1582"
+      },
+      "Mobile/Declined": {
+        "reset": "4:1589",
+        "send": "4:1666"
+      },
+      "Mobile/Followup": {
+        "reset": "4:1673",
+        "send": "4:1753"
+      },
+      "Mobile/Loading": {
+        "reset": "4:1760",
+        "send": "4:1835"
+      },
+      "Mobile/Error": {
+        "reset": "4:1842",
+        "retry": "4:1912",
+        "send": "4:1917"
+      }
+    },
+    "screens": [
+      {
+        "id": "4:2",
+        "name": "Desktop / Main",
+        "width": 1440,
+        "height": 1024,
+        "pet": "Calm"
+      },
+      {
+        "id": "4:108",
+        "name": "Desktop / Happy",
+        "width": 1440,
+        "height": 1024,
+        "pet": "Happy"
+      },
+      {
+        "id": "4:209",
+        "name": "Desktop / Concerned",
+        "width": 1440,
+        "height": 1024,
+        "pet": "Concerned"
+      },
+      {
+        "id": "4:313",
+        "name": "Desktop / Encouraging",
+        "width": 1440,
+        "height": 1024,
+        "pet": "Encouraging"
+      },
+      {
+        "id": "4:420",
+        "name": "Desktop / Lonely",
+        "width": 1440,
+        "height": 1024,
+        "pet": "Concerned"
+      },
+      {
+        "id": "4:530",
+        "name": "Desktop / Accepted",
+        "width": 1440,
+        "height": 1024,
+        "pet": "Encouraging"
+      },
+      {
+        "id": "4:641",
+        "name": "Desktop / Declined",
+        "width": 1440,
+        "height": 1024,
+        "pet": "Calm"
+      },
+      {
+        "id": "4:740",
+        "name": "Desktop / Followup",
+        "width": 1440,
+        "height": 1024,
+        "pet": "Concerned"
+      },
+      {
+        "id": "4:842",
+        "name": "Desktop / Loading",
+        "width": 1440,
+        "height": 1024,
+        "pet": "Calm"
+      },
+      {
+        "id": "4:939",
+        "name": "Desktop / Error",
+        "width": 1440,
+        "height": 1024,
+        "pet": "Calm"
+      },
+      {
+        "id": "4:1036",
+        "name": "Mobile / Main",
+        "width": 390,
+        "height": 844,
+        "pet": "Calm"
+      },
+      {
+        "id": "4:1127",
+        "name": "Mobile / Happy",
+        "width": 390,
+        "height": 844,
+        "pet": "Happy"
+      },
+      {
+        "id": "4:1213",
+        "name": "Mobile / Concerned",
+        "width": 390,
+        "height": 844,
+        "pet": "Concerned"
+      },
+      {
+        "id": "4:1302",
+        "name": "Mobile / Encouraging",
+        "width": 390,
+        "height": 844,
+        "pet": "Encouraging"
+      },
+      {
+        "id": "4:1394",
+        "name": "Mobile / Lonely",
+        "width": 390,
+        "height": 844,
+        "pet": "Concerned"
+      },
+      {
+        "id": "4:1489",
+        "name": "Mobile / Accepted",
+        "width": 390,
+        "height": 844,
+        "pet": "Encouraging"
+      },
+      {
+        "id": "4:1585",
+        "name": "Mobile / Declined",
+        "width": 390,
+        "height": 844,
+        "pet": "Calm"
+      },
+      {
+        "id": "4:1669",
+        "name": "Mobile / Followup",
+        "width": 390,
+        "height": 844,
+        "pet": "Concerned"
+      },
+      {
+        "id": "4:1756",
+        "name": "Mobile / Loading",
+        "width": 390,
+        "height": 844,
+        "pet": "Calm"
+      },
+      {
+        "id": "4:1838",
+        "name": "Mobile / Error",
+        "width": 390,
+        "height": 844,
+        "pet": "Calm"
+      }
+    ],
+    "notes": "4:1920"
+  },
+  "flowFileKey": "8jYrvRgGJTvzMQ2HRMbE5l",
+  "architectureFileKey": "aKVZYwaif4BArPmoKljpjQ",
+  "prototypeConnected": false
+}
