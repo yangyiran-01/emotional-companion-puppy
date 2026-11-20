@@ -1,54 +1,66 @@
-# PawPal 开发记录
+# PawPal development record
 
-日期：2026-11-17，Europe/London。以下是实际执行记录，不是课程报告或用户研究。
+Events recorded on 17 November 2026 and updated on 20 November 2026, Europe/London. This records actual development work, not participant research.
 
-## 阶段与授权
+## Stages and authorisation on 17 November
 
-用户先批准进入设计阶段，随后明确表示“可以了 我觉得可以开始开发了”。因此进入 Phase 3。Figma 可点击原型受 Starter MCP 调用额度阻止，未将它记录为已完成。设计阶段文件与限制保存在 `design/PHASE2_REVIEW.md`。
+The user approved the design stage and subsequently authorised implementation. Development therefore entered Phase 3. The Figma clickable prototype was blocked by the Starter MCP tool-call quota and was not recorded as completed. Design-stage files and limitations are documented in `design/PHASE2_REVIEW.md`.
 
-用户随后选择“先测试 Demo，稍后配置 Key”。当前交付默认 Demo，不调用真实模型；真实 API 接入独立保留。没有收集或记录密钥。
+The user chose to test Demo first and configure a key later. The default delivery therefore uses Demo without live model calls; the separate AI integration remains available for later configuration. No key was collected or recorded in chat.
 
-## 实现与修改
+## Implementation and revisions
 
-- 初始检查工作目录，未发现已有应用或 AGENTS.md，保留此前设计资源后新增应用文件。
-- 使用 React / TypeScript / Vite / Tailwind 与单个 Express 后端，六个要求模块以函数和组件组成，没有增加额外核心功能或数据库。
-- 由于 Figma 额度限制无法导出角色，在 React 中重建同一奶油色垂耳狗的 SVG。四个状态共用身体与配色，改变眉眼、嘴和抬爪；最终形象需要用户检查。
-- 增加英文和中文情绪规则、否定处理、近期压力追问、孤独建议门控。拒绝保留在会话状态，明确再次请求才能重新开放建议。
-- 检查发现近期危机表达之后的孤独追问可能失去安全上下文，增加近期未解除安全信号路由；明确当前安全表达可解除该窄范围标记。它不是风险评估。
-- Demo、AI、应用固定反馈与安全固定反馈分别标记来源。AI 错误不自动切换 Demo。
-- 后端验证输入、限流、不缓存 API，不记录聊天内容；OpenAI 请求使用 `store: false`，密钥只在服务端。
-- 浏览器初检发现欢迎内容被首次自动滚动截断，改为新会话保持顶部。桌面切换移动模拟尺寸时末条消息未完全可见，增加尺寸变化后的滚动处理；此项最后修改尚需浏览器复查。
-- 移动正文与输入字号调整以改善可读性，字体只打包本地 Latin 子集，中文使用系统后备字体。
-- 加入失败消息保留、重试不重复用户消息、编辑恢复草稿、模式切换取消过期回复的客户端状态测试。
+- Initial directory inspection found no existing application or AGENTS.md. Existing design assets were preserved when application files were added.
+- React, TypeScript, Vite and Tailwind were combined with one Express backend. The six required modules use functions and components, without extra core features or a database.
+- Figma export was unavailable because of the quota, so the same cream, floppy-eared puppy was reconstructed in React SVG. Four states share the body and palette, changing brows, eyes, mouth and paw position. Final visual approval remains with the user.
+- English and Chinese emotion rules, limited negation handling, recent-pressure follow-ups and loneliness-based suggestion gating were added. Refusal persists in conversation state; an explicit later request can reopen suggestions.
+- Review found that a loneliness follow-up after recent crisis language could lose safety context. Recent unresolved-risk routing was added; an explicit current-safety statement clears the narrow flag. This is not a clinical risk assessment.
+- Demo, AI, fixed application feedback and fixed safety guidance have separate source labels. AI errors do not silently switch to Demo.
+- The backend validates input, rate-limits requests, disables API caching and does not log chat content. OpenAI requests use `store: false`, with the key kept server-side.
+- Browser inspection found welcome content cropped by initial automatic scrolling. New conversations were changed to remain at the top. Switching from desktop to mobile emulation also left the last message partly hidden; resize-related scrolling was added, but that final adjustment still needs browser rechecking.
+- Mobile text and input sizing were adjusted for readability. Only Inter's Latin subset is bundled; Chinese uses system fallback fonts.
+- Client-state tests cover retained failed messages, retries without duplicate user messages, editing back into the draft and discarding stale replies after a mode change.
 
-## 交付状态
+## Delivery status at the implementation stage
 
-Phase 3 应用已实现；Phase 4 结果见 `TEST_RESULTS.md`。Phase 5 用户测试和最终确认待进行。README 和目录可用于准备 GitHub 提交；没有创建远程仓库，没有虚构 commit 或发布记录。
+Phase 3 was implemented; Phase 4 results are in `TEST_RESULTS.md`. Phase 5 user testing and final confirmation remain pending. At this stage, the README and directory were prepared for GitHub, but no remote repository had yet been connected.
 
-初始化本地 Git 仓库（main）时尚无 commit 或 remote；随后保存的真实评审快照见下节。依赖下载地址统一为官方 npm registry，保留锁定版本与完整性值。检查确认 `.env` 类文件被忽略，示例配置可提交。
+Local Git was initialised on `main` before a commit or remote existed. Actual review snapshots were saved later. Dependency download URLs were standardised to the official npm registry while preserving locked versions and integrity values. Checks confirmed that `.env` files are ignored and the empty example configuration can be committed.
 
-Figma 原型连线、FigJam 实现状态同步、真实 AI 联调与最终用户验收仍应如实保留为未完成项目。
+Figma prototype connections, the FigJam implementation update, live AI testing and final user acceptance remain outstanding.
 
-## 作业交付材料补充（2026-11-17）
+## Assignment evidence supplement on 17 November
 
-- 根据用户粘贴的教师要求补充交付信息，没有撰写 Abstract 或 Design Rationale 正文，没有提交课程作业。
-- 新增三个可编辑 SVG 分镜，共 10 格，并附 HTML 查看页、回放输入输出与生成脚本。示例使用虚构学生；脚本调用实际 Demo 对话逻辑，并校验压力、开心、孤独、拒绝后不重复建议等结果。小狗复用应用 SVG，不是四张独立图片。
-- 分镜明确标为交互回放插图，不称为运行截图、真实 AI 输出或参与者研究。孤独场景中 Accept 与 Not now 标为替代分支，拒绝后继续聊天另有一格。
-- 渲染三张 SVG 后检查了完整排版、文字、角色及按钮。首轮发现图注区域不足，增加图注空间；再次渲染后完整可见。
-- SVG 服务器渲染发现 React 对 `<title>` 多个文本子节点发出警告，改用单一模板字符串，随后回放无此警告，应用测试与构建通过。
-- 精简 README，保留要求的 11 类信息并补充 AI 辅助的具体修改与检查例子。字数由整份 Markdown 计数改为 prose 计数，排除代码、命令、URL 和语法；新增两个计数用例验证规则。
-- 新增证据索引、已核实来源清单与提交状态表。课程概念、A1 文献和反馈的具体对应仍需本地材料或用户确认，没有把通用来源冒充课件内容。
-- 用户要求仓库名为“Yoyo project”，拟使用 GitHub 可接受的 `Yoyo-project`；应用品牌仍为 PawPal。公开发布取决于可用 GitHub 连接，本地材料不使用猜测的仓库地址。
-- 版本记录采用当前真实快照，不回填或伪造此前的 commit。首个本地提交与 `demo-evidence-2026-11-17` 标签用于评审，不表示用户验收通过或最终提交。
+- Added delivery information based on the teacher's pasted brief. At this stage, no Abstract or Design Rationale was written and no coursework was submitted. The later report request is recorded separately below.
+- Added three editable SVG storyboards with ten panels, an HTML viewer, replay inputs and outputs, and a generation script. A fictional student is used. The script calls actual Demo logic and asserts pressure, happiness, loneliness and refusal-persistence behaviour. The puppy reuses the application's SVG.
+- Storyboards are labelled interaction-replay illustrations, not screenshots, live AI output or participant research. Accept and Not now are alternative branches; a separate panel shows continued chat after refusal.
+- All three SVGs were rendered and checked for layout, text, character and button visibility. The first version had insufficient caption space; the space was increased and the figures rendered again.
+- Server-side SVG rendering produced a React warning about multiple text children in `<title>`. A single template string resolved the warning; replay checks, application tests and the build passed afterwards.
+- The README was shortened while retaining the eleven requested categories and concrete examples of AI-assisted revisions and checks. Word counting changed from whole-Markdown counting to prose counting, excluding code, commands, URLs and syntax. Two tests verify the counting rules.
+- Added an evidence inventory, verified-source inventory and submission checklist. At that point, A1, lecture materials and feedback had not been supplied locally, so generic sources were not presented as course evidence.
+- The user initially requested a repository name corresponding to Yoyo project, with `Yoyo-project` proposed as a GitHub-compatible form. PawPal remained the application brand. No guessed remote URL was used.
+- Version records use actual snapshots without backdating commits. The first local commit and `demo-evidence-2026-11-17` tag identify a review version, not final acceptance or submission.
 
-## 仓库命名更新（2026-11-17）
+## Repository naming on 17 November
 
-用户随后要求将仓库名称改为“情绪陪伴小狗”的英文，更新为 **Emotional Companion Puppy**，GitHub 名称使用 `emotional-companion-puppy`。已同步 README、提交状态与 GitHub 准备说明；尚无在线仓库，因此没有声称完成 GitHub 远程重命名。应用品牌仍为 PawPal。
+The user subsequently requested the English name **Emotional Companion Puppy**, using `emotional-companion-puppy` on GitHub. The README, submission status and GitHub instructions were updated. There was no online repository connected at that moment, so this was not represented as a completed remote rename. PawPal remained the application brand.
 
-## GitHub 仓库接入（2026-11-17）
+## GitHub connection on 17 November
 
-用户提供公开仓库 `https://github.com/yangyiran-01/emotional-companion-puppy` 并授权上传代码。检查远程 main 时，仅有初始 README 提交 `6ac4c55`；GitHub 元数据确认该仓库为 public。
+The user supplied `https://github.com/yangyiran-01/emotional-companion-puppy` and authorised the code upload. Remote `main` initially contained only README commit `6ac4c55`; GitHub metadata confirmed public visibility.
 
-本地 origin 设为该实际地址，获取远程历史并合并。README 的 add/add 冲突通过整合远程简短介绍与本地完整运行文档解决；保留远程初始提交，不使用强制推送改写历史。README、仓库说明和提交清单同步实际链接，Demo、真实 AI 待联调和用户验收状态继续如实标明。
+Local `origin` was set to that URL, remote history was fetched and merged, and the README add/add conflict was resolved by combining the remote introduction with the complete local running instructions. The remote initial commit was preserved; no force push rewrote history. Repository documentation was updated with the real URL, while Demo, unvalidated AI and pending acceptance remained explicit.
 
-上传内容经过文件清单和凭据模式检查，不包含 `.env`、node_modules、dist、私人课程材料或浏览器会话数据。仓库用于源码与开发证据分享，不能等同于用户最终验收或已验证的在线应用托管。
+The upload file list and credential-pattern checks excluded `.env`, node_modules, dist, private course materials and browser-session data. Public source and development evidence do not establish hosted deployment or final user acceptance.
+
+## Report preparation after the evidence supplement on 17 November
+
+The user later explicitly requested a Word report, replacing the earlier instruction to leave report prose unwritten. Local Assignment 1 and lecture files were found in the course folder and used for the report. No Canvas access was needed. The English report was saved locally as `PawPal_Assignment_2_Report.docx`, with 181 abstract words and 1,078 main words under its stated counting method, totalling 1,259. The eight rendered pages were inspected. It includes the implementation diagram, three illustrated scenarios, references and code snapshot `57c566d`.
+
+The Word report and private course source files were not added to the public repository. Specific lecturer feedback was not found and was not invented. Report preparation does not establish user acceptance or live AI validation.
+
+## English documentation revision on 20 November
+
+The user requested English repository content. Chinese documentation was translated into English, preserving historical dates, test scope, asset provenance and outstanding work. User-test instructions now use English versions of the demonstration scenarios. README documentation explains that Chinese strings in source and test fixtures support bilingual conversations; executable language rules and replies were preserved.
+
+This revision does not add application features or change the report's identified code snapshot. Verification for this revision is recorded in `TEST_RESULTS.md`.

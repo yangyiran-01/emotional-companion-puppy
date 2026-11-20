@@ -1,8 +1,8 @@
-# 角色与资源来源
+# Character and asset provenance
 
-- Figma 原始 Calm 小狗：Figma `generate_vector_illustration`，使用 Figma AI credits，2026-11-17；奶油毛、垂耳、圆脸、短尾、薰衣草围巾。四状态由同一矢量源修改眉眼、嘴和爪子，详见设计阶段审查记录。
-- Web 角色：`src/components/Pet.tsx`，Codex 辅助编写的 SVG 几何重建。Figma 导出因 MCP Starter 限额受阻，因此不是未经核实的原始导出。所有状态共享身体、颜色、耳朵和围巾，只变化表情和动作。没有抓取网络犬类图片，没有额外生成四张随机宠物。
-- 已执行的 AI 辅助检查：浏览器观察 Calm、Happy、Concerned 和 Encouraging，检查奶油体色、垂耳、围巾及体型保持一致。调整了移动端尺寸和状态动画。没有声称用户已人工验收，最终可爱程度和设计一致性待你判断。
-- 网站 favicon `public/paw.svg` 为代码绘制的爪印；功能图标来自 Lucide；Inter 从 npm 本地打包，不请求 Google Fonts。依赖许可见根目录第三方说明。
-- 本项目没有使用 ImageGen 生成栅格角色资源。Figma 原始生成和后续 AI 辅助编辑如实记录；没有虚构人工画师或人工调整历史。
-- 作业分镜：`scripts/build-storyboards.tsx` 复用应用的 `Pet.tsx`，结合代码回放的 Demo 对话，生成三个 SVG 和 HTML 查看页。它们是带清晰标签的合成示例插图，不是浏览器截图或真实参与者记录。三张 SVG 已完整渲染并进行 AI 辅助视觉检查，用户最终审查待进行。
+- **Original Figma Calm puppy:** generated with Figma `generate_vector_illustration`, using Figma AI credits, on 17 November 2026. The concept has cream fur, floppy ears, a round face, a short tail and a lavender scarf. Four states were derived from the same vector source by changing brows, eyes, mouth and paws; see the design review record.
+- **Web character:** `src/components/Pet.tsx` is an SVG reconstruction written with Codex assistance. Figma export was blocked by the MCP Starter quota, so this is not a verified export of the original vector. All states share the body, colours, ears and scarf, with changes to expression and movement. No dog photographs were scraped and no separate random pet images were used.
+- **AI-assisted checks performed:** Calm, Happy, Concerned and Encouraging were observed in the browser to check consistency of fur colour, ears, scarf and body shape. Mobile sizing and state animations were adjusted. Final user approval of appearance and consistency remains pending.
+- **Other interface assets:** `public/paw.svg` is a paw icon drawn in code. Functional icons come from Lucide. Inter is bundled locally through npm rather than requested from Google Fonts. Dependency licences are listed in the root third-party notices.
+- **Generation record:** no ImageGen raster character assets were used. The original Figma generation and subsequent AI-assisted edits are recorded without claiming a human illustrator or inventing manual editing history.
+- **Assignment storyboards:** `scripts/build-storyboards.tsx` reuses the application's `Pet.tsx` and executable Demo dialogue replays to generate three SVGs and an HTML viewer. They are labelled synthetic interaction illustrations, not browser screenshots or participant records. All three SVGs were rendered in full and visually inspected with AI assistance; final user review remains pending.

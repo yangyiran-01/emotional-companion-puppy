@@ -1,6 +1,6 @@
 # Submission and review status
 
-Last updated: 17 November 2026, Europe/London. This is a checklist, not the Assignment 2 report. Report prose remains outside this development task under the user's earlier instruction.
+Last updated: 20 November 2026, Europe/London. This checklist distinguishes public implementation evidence, the locally prepared report and outstanding acceptance work.
 
 | Requirement | Current evidence / status |
 | --- | --- |
@@ -11,10 +11,10 @@ Last updated: 17 November 2026, Europe/London. This is a checklist, not the Assi
 | Submitted commit or release | Local review snapshot is not final acceptance; final submitted version has not been selected |
 | Development record | `DEVELOPMENT_RECORD.md`, test results and real Git history; no backdated history |
 | AI assistance and resource attribution | README examples, `ASSET_PROVENANCE.md`, `THIRD_PARTY_NOTICES.md` |
-| References | Verified source inventory; actual A1 references and lecture sources still needed |
-| Weeks 1–4 concepts and A1 evidence | Evidence map prepared; local course materials and exact passage mapping not yet supplied or confirmed |
-| Abstract and main report | Deliberately not written; up to 300 words abstract, around 1,000 / maximum 1,100 main words; combined maximum 1,400 |
-| Report word count | Later: put total count on first page; rationale-table prose counts; short figure labels and references excluded |
+| References | Source inventory in `REFERENCES.md`; the local report also cites verified A1 literature and supplied lecture slides |
+| Weeks 1–4 concepts and A1 evidence | Local A1 and course files were subsequently found and used in the report; private course files are not published; specific lecturer feedback was not found |
+| Abstract and main report | English Word report prepared locally after the user's later explicit request; not uploaded with the source code |
+| Report word count | First page states 181 abstract words and 1,078 main words, totalling 1,259, under its stated counting method; eight rendered pages inspected |
 | User testing | Developer checks are not acceptance; awaiting the user's own test and explicit decision |
 
 ## Submission choices still open
@@ -23,7 +23,7 @@ The teacher permits prototypes and simulations, so a clearly labelled Demo is a 
 
 The teacher does not require Figma, a video, a specific drawing tool or formal participant research in the supplied brief. Figma prototype connections remain an unfinished item in the user's own delivery plan, not an invented teaching requirement. Repository files do not need an extra ZIP; use one only if material genuinely cannot go in the repository.
 
-The brief also says reading may stop after 1,300 counted words if the report significantly exceeds its limit. A later report should aim near the requested lengths rather than filling every maximum, and must not move explanatory paragraphs into figures to evade counting.
+The brief specifies up to 300 abstract words, around 1,000 / maximum 1,100 main words, and a combined maximum of 1,400. It also says reading may stop after 1,300 counted words if the report significantly exceeds its limit. The local report remains within these limits; explanatory prose was not moved into figures to evade counting. It identifies code snapshot `57c566d`, without establishing final user acceptance or a submitted release.
 
 ## Inspect the local version
 

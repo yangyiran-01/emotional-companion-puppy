@@ -1,123 +1,123 @@
-# PawPal — Phase 2 设计审查
+# PawPal Phase 2 design review
 
-日期：2026-11-17（Europe/London）
+Recorded: 17 November 2026, Europe/London.
 
-状态：UI 与图表已创建；原型连线和最终检查未完成；等待设计审查。
+Historical design-stage status: UI and diagrams created; prototype connections and final checks incomplete; awaiting design review.
 
-本文件是设计交付记录，不是 Assignment 2 Project Report。
+This is a design delivery record, not the Assignment 2 report.
 
-开发阶段补记：用户随后明确表示“可以了 我觉得可以开始开发了”，已授权进入 Phase 3。下方保留 Phase 2 当时的状态，不将未完成原型改写为已完成。当前实现、测试和剩余事项见 `../DEVELOPMENT_RECORD.md`、`../ARCHITECTURE.md` 与 `../TEST_RESULTS.md`；用户最终验收仍待进行。
+**Later implementation note:** the user subsequently authorised Phase 3 development. The historical status below is retained without presenting unfinished prototype connections as completed. See `../DEVELOPMENT_RECORD.md`, `../ARCHITECTURE.md` and `../TEST_RESULTS.md` for the implemented application and remaining work. Final user acceptance is still pending.
 
-## 实际文件
+## Actual files
 
-- [Figma 可编辑设计稿](https://www.figma.com/design/bSwc6WMJZDteksbkpXjq9t)
-- [桌面主界面](https://www.figma.com/design/bSwc6WMJZDteksbkpXjq9t?node-id=4-2)
-- [小狗与设计基础](https://www.figma.com/design/bSwc6WMJZDteksbkpXjq9t?node-id=3-332)
-- [移动端孤独与社交建议](https://www.figma.com/design/bSwc6WMJZDteksbkpXjq9t?node-id=4-1394)
-- [FigJam 用户交互流程图：审查版本](https://www.figma.com/board/8jYrvRgGJTvzMQ2HRMbE5l)
-- [FigJam 系统架构图](https://www.figma.com/board/aKVZYwaif4BArPmoKljpjQ)
+- [Editable Figma design](https://www.figma.com/design/bSwc6WMJZDteksbkpXjq9t)
+- [Desktop main screen](https://www.figma.com/design/bSwc6WMJZDteksbkpXjq9t?node-id=4-2)
+- [Puppy and design foundations](https://www.figma.com/design/bSwc6WMJZDteksbkpXjq9t?node-id=3-332)
+- [Mobile loneliness and suggestion screen](https://www.figma.com/design/bSwc6WMJZDteksbkpXjq9t?node-id=4-1394)
+- [FigJam interaction flow review version](https://www.figma.com/board/8jYrvRgGJTvzMQ2HRMbE5l)
+- [FigJam planned architecture](https://www.figma.com/board/aKVZYwaif4BArPmoKljpjQ)
 
-流程图最初另生成过一个草稿（FRzpy5UWjoFYiJZnI5hwa7）。检查发现该草稿的普通回复生成路径绕过安全判断，随后创建了上面链接的修正版。初稿不作为交付依据，未删除或冒充已经修改。
+An earlier flow draft also exists (`FRzpy5UWjoFYiJZnI5hwa7`). Review found that its normal reply path bypassed the safety decision, so the corrected version linked above was created. The draft is not the delivery reference; it was not deleted or falsely described as edited.
 
-## 已创建内容
+## Created content
 
-Figma 有两个页面：`01 · UI & Prototype` 与 `02 · Foundations & Pet`。
+Figma contains two pages: `01 · UI & Prototype` and `02 · Foundations & Pet`.
 
-桌面 1440 × 1024 和移动 390 × 844 各有以下 10 个画面，共 20 个：
+Desktop 1440 × 1024 and mobile 390 × 844 each contain these ten screens, twenty in total:
 
-1. Main：Calm 默认状态、欢迎文案、示例开场、输入框、AI 身份提示。
-2. Happy：分享项目完成与好评，开心小狗与祝贺回应。
-3. Concerned：作业压力、关心表情与支持性回应。
-4. Encouraging：课堂发言缺乏信心、抬爪鼓励表情。
-5. Lonely：孤独表达、支持回应、可选建议、Accept / Not now。
-6. Accepted：一个可执行的联系建议，明确不会发送任何消息。
-7. Declined：尊重拒绝，不再主动重复建议的反馈。
-8. Followup：继续谈论作业截止时间的示例状态。
-9. Loading：预设的等待回复状态。
-10. Error：消息保留、网络错误与重试入口。
+1. Main: default Calm, welcome copy, example prompts, input and AI disclosure.
+2. Happy: project completion and positive feedback, happy puppy and congratulations.
+3. Concerned: assignment pressure, concerned expression and support.
+4. Encouraging: uncertainty about speaking in class and a raised paw.
+5. Lonely: loneliness, support, an optional suggestion and Accept / Not now.
+6. Accepted: one actionable contact suggestion, explicitly stating that nothing is sent.
+7. Declined: respectful feedback without another proactive reminder.
+8. Followup: a subsequent assignment-deadline turn.
+9. Loading: a preset waiting state.
+10. Error: retained message, network error and retry control.
 
-界面是可编辑文本、矢量、组件实例和自动布局，不是整页截图。检查过的主界面和建议界面均无整页栅格图片。
+Screens use editable text, vectors, component instances and auto layout rather than whole-page screenshots. Inspected main and suggestion screens contained no full-page raster images.
 
-## 视觉规范
+## Visual specification
 
-| 用途 | 值 |
+| Purpose | Value |
 | --- | --- |
-| 页面背景 | #FAF5FF |
-| 卡片 | #FFF9FD |
-| 柔紫 | #A78BFA |
-| 樱花粉 | #F9A8D4 |
-| 主要操作 | #7C3AED |
-| 正文 | #40364D |
-| 字体 | Inter；正文 16/25，移动消息 14/22 |
-| 间距 | 4、8、12、16、24、32、48px |
-| 卡片圆角 | 20、28px |
-| 按钮 | 高 48px，Default / Hover / Active / Focus / Disabled / Loading |
+| Page background | #FAF5FF |
+| Cards | #FFF9FD |
+| Soft purple | #A78BFA |
+| Blossom pink | #F9A8D4 |
+| Primary action | #7C3AED |
+| Body text | #40364D |
+| Typeface | Inter; body 16/25, mobile messages 14/22 |
+| Spacing | 4, 8, 12, 16, 24, 32, 48px |
+| Card radius | 20, 28px |
+| Buttons | 48px height; Default / Hover / Active / Focus / Disabled / Loading |
 
-颜色和布局基础已建立 Figma 变量；文字和阴影有本地样式。按钮、输入框、消息气泡和小狗是可复用组件。未增加第四个核心功能。
+Figma variables define colour and layout foundations; text and shadows have local styles. Buttons, inputs, message bubbles and the puppy are reusable components. No fourth core feature was added.
 
-## 小狗资源来源与调整
+## Puppy provenance and changes
 
-工具：Figma `generate_vector_illustration`，一次生成原始 Calm 小狗；该操作使用 Figma AI credits。
+Figma `generate_vector_illustration` generated the original Calm puppy once, using Figma AI credits.
 
-角色为奶油色垂耳小狗，圆脸、短爪、短尾、粉色腮红、淡紫围巾。生成结果有独立的身体、耳朵、眼睛、眉毛、嘴巴、尾巴、围巾和爪子图层。
+The cream, floppy-eared puppy has a round face, short paws and tail, pink blush and a lavender scarf. The generated vector has separate body, ears, eyes, brows, mouth, tail, scarf and paw layers.
 
-后续修改由 AI 辅助的 Figma 脚本完成：复制同一矢量源，保留身体与配色；Happy 使用弯眼与张口笑，Concerned 使用关切眉形和柔和眼神，Encouraging 使用积极笑容并增加抬起的小爪子。Calm 保留原始自然表情。没有使用四张不同的小狗图片。
+Subsequent AI-assisted Figma scripts copied that source while retaining its body and palette. Happy changes the eyes and smile; Concerned changes brows and eyes; Encouraging adds an upbeat smile and raised paw. Calm retains the relaxed expression. Four unrelated puppy images were not used.
 
-AI 视觉检查已检查原始角色和四种表情的身份一致性。你的人工审查尚未进行，不能记录为“人工已通过”。围巾、毛发和体型在四个状态之间保持一致。
+AI-assisted visual inspection checked the original and four states for consistent identity. A completed human visual review was not recorded. Scarf, fur and body shape remain consistent across states.
 
-设计说明列出的呼吸、眨眼、摇尾、点头和状态过渡均为后续 Web 实现计划，当前 Figma 中尚未建立动画或可点击连线。
+Breathing, blinking, wagging, nodding and transitions were planned for the web implementation at this stage. The Figma file did not yet contain animation or clickable connections.
 
-## 流程与架构
+## Flow and architecture
 
-用户流程图涵盖：空输入、会话上下文、安全判断、情绪分类、同一小狗的状态映射、回复生成与失败重试、适宜的社交建议、接受与拒绝、继续聊天。
+The interaction flow covers blank input, context, safety decisions, classification, shared-puppy mapping, reply generation and retry, appropriate social suggestions, acceptance, refusal and continued chat.
 
-系统架构图展示六个指定模块及计划中的数据流与控制流。Browser 与单个轻量后端内部的模块均有边界说明；模型 API 为计划中的外部集成。
+The architecture shows six required modules and planned data/control flows. Browser and single-server boundaries are marked; the external model API was planned at this stage.
 
-- Implemented：尚无应用模块。
-- Simulated：Figma 界面中的预设对话示例。
-- Planned：前后端全部应用逻辑、模型集成及宠物动画。
+- **Implemented at Phase 2:** no application modules yet.
+- **Simulated:** preset Figma conversations.
+- **Planned:** frontend and backend logic, model integration and pet animation.
 
-架构图在开发后需要根据实际代码更新，不能直接作为最终实现架构使用。
+This planned diagram must not be presented as the final implemented architecture. The current implementation diagram is in `../architecture-current.svg`.
 
-## 已执行的检查与修正
+## Checks and corrections performed
 
-- Figma 文件创建成功，组件与页面写入成功。
-- 检查了可用字体，使用 Inter 的已确认样式名。
-- 四种宠物状态、12 个按钮变体、4 个输入变体和2个消息角色已创建。
-- 检查的桌面与移动界面有文本、矢量和实例；检查过的文字字体均为 Inter。
-- 首次设计基础截图发现横向自动布局高度不足，已修正并复查小狗四种状态完整可见。
-- 控件示例实例宽度已由文本自适应改为 160 × 48；该最后修正尚未截图复查。本地基础预览保存的是宽度修正前的版本，小狗与配色可供审查。
-- 首次移动建议界面截图发现消息文字横向裁切；已把消息主组件正文改为填满父容器，保留高度自动增长。
-- 已将输入区移至桌面卡片底部，并调整移动画板为 390 × 844。修改后的桌面主界面截图已复查。
-- 移动文字修正和尺寸调整后的截图请求被额度限制阻止，尚未最终验证。
-- FigJam 流程图和架构图已实际创建；本地保存了服务返回的 SVG 预览。完整图表的正常缩放视觉复核仍待完成，不能声称全部视觉 QA 通过。
+- The Figma file, components and screens were created successfully.
+- Available fonts were checked and confirmed Inter style names used.
+- Four pet states, twelve button variants, four input variants and two message roles were created.
+- Inspected desktop/mobile screens contained text, vectors and instances; inspected text used Inter.
+- The first foundations preview revealed insufficient horizontal-layout height. It was corrected and the four full puppy states were checked again.
+- Control examples changed from text-adaptive width to 160 × 48. That final width change was not screenshot-rechecked. The saved local foundations preview predates it but still shows the puppy and palette.
+- Initial mobile suggestion text clipped horizontally. The message component was changed to fill parent width while retaining automatic height.
+- Input was moved to the desktop card bottom, and mobile frames set to 390 × 844. The revised desktop main preview was inspected.
+- Screenshot requests for final mobile wrapping and dimensions were blocked by quota.
+- Both FigJam diagrams were created, and returned SVG previews saved locally. Full-diagram inspection at normal zoom remained incomplete at this stage.
 
-## 当前阻碍与未完成项
+## Blockers and outstanding items at Phase 2
 
-Figma 返回：`You've reached the Figma MCP tool call limit on the Starter plan`。
+Figma returned: `You've reached the Figma MCP tool call limit on the Starter plan`.
 
-设计文件写入和截图工具被阻止。尝试连接原型时同样被拒绝，没有任何连线写入成功。流程图工具允许创建新的独立 FigJam 图表，因此两张图已经生成；向已有图表追加内容的请求被额度限制阻止。
+Design writes and screenshots were blocked. Prototype connection attempts were also rejected; no connection was written successfully. The diagram tool could create separate FigJam files, allowing the two diagrams above, but appending to existing diagrams was blocked.
 
-也尝试通过浏览器正常登录并打开设计文件，浏览器未显示可用编辑器，因此未通过浏览器修改文件。没有更改订阅或支付。
+A normal browser login/open attempt did not expose a usable editor, so the file was not edited through the browser. No subscription or payment change was made.
 
-未完成：
+Outstanding items:
 
-- 可点击原型连线、起点及实际点击验证。
-- 修正后的移动消息换行与底部输入区截图复查。
-- 最后控件示例宽度修正后的复查。
-- Followup 画面需保留前两条消息以更清楚展示连续对话；当前只展示后续一轮的独立状态。
-- 全部画面与完整图表的最终视觉检查。
+- Clickable connections, flow starting points and actual click-through verification.
+- Revised mobile wrapping and bottom-input screenshot checks.
+- Final control-example width checks.
+- Retaining the previous two messages in Followup to make continuity clearer; it currently shows the later turn as a separate state.
+- Final inspection of all screens and complete diagrams.
 
-额度恢复或获得正常可用的 Figma 编辑环境后，应先补齐以上事项。不会把尚未连线的文件称为“可点击原型”。
+Complete these when quota or an editable Figma environment becomes available. The unconnected design is not described as a clickable prototype.
 
-## 审查顺序
+## Review sequence
 
-1. 查看桌面主界面：粉紫配色、布局、可读性。
-2. 查看设计基础：同一只小狗的四种表情与可爱程度。
-3. 查看 Concerned、Happy、Encouraging 的状态反馈。
-4. 并排查看 Lonely、Accepted、Declined：建议是否自然、拒绝是否被尊重。
-5. 查看移动布局，并保留对换行修正结果的待验证标记。
-6. 查看用户流程图与标注 Planned 的系统架构。
-7. 原型补齐后，再按开场、情绪变化、接受、拒绝和重试路径点击检查。
+1. Inspect the desktop layout, pink/lavender palette and readability.
+2. Inspect foundations, puppy identity, four expressions and appeal.
+3. Compare Concerned, Happy and Encouraging feedback.
+4. Compare Lonely, Accepted and Declined for natural advice and respected refusal.
+5. Inspect mobile layout while retaining unverified wrapping flags.
+6. Inspect the user flow and architecture labelled Planned.
+7. Once connections exist, click through chat, expression changes, acceptance, refusal and retry.
 
-当前停止于 Phase 2。你的视觉反馈与最终设计确认均未记录；尚未进入 Phase 3，未创建 React 应用、后端、密钥配置、Git 提交或最终报告。
+At the historical Phase 2 stopping point, final visual review was not recorded and no React application, backend, key configuration, Git commit or final report had been created. Later progress is recorded in the implementation note above and the development record.

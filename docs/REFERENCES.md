@@ -1,11 +1,11 @@
 # Sources and acknowledgements inventory
 
-Verified on 17 November 2026. This is a source inventory for the implementation and later report preparation, not a fabricated final bibliography. Include a source in the report only if the report actually cites it; match the course's referencing style.
+Initial inventory verified on 17 November 2026. Update on 20 November: the later local report used Assignment 1 and lecture materials found in the supplied course folder. This file preserves the earlier implementation-source inventory; the Word report contains its own bibliography. Private course files are not included in the public repository.
 
 ## General design sources
 
 1. Nielsen, J. (1994; reviewed 2024). *10 Usability Heuristics for User Interface Design*. Nielsen Norman Group. [Primary article](https://www.nngroup.com/articles/ten-usability-heuristics/). The article supports terminology for status visibility, user control, consistency and error recovery. It does not prove that PawPal is effective, and its presence in Weeks 1–4 is not yet verified.
-2. Amershi, S. et al. (2019). *Guidelines for Human-AI Interaction*. CHI 2019. [Microsoft Research publication page](https://www.microsoft.com/en-us/research/publication/guidelines-for-human-ai-interaction/). Title, authorship and venue/year checked against the primary publication page. The full paper has not yet been reviewed for a specific numbered-guideline claim in this evidence supplement. This source is not asserted to be in the student's A1 bibliography.
+2. Amershi, S. et al. (2019). *Guidelines for Human-AI Interaction*. CHI 2019. [Microsoft Research publication page](https://www.microsoft.com/en-us/research/publication/guidelines-for-human-ai-interaction/). Title, authorship and venue/year were initially checked against the publication page; the paper's capability and dismissal guidance was subsequently reviewed for the local report. It is discussed in Week 1 Lecture 03 and is not asserted to be in the A1 bibliography.
 
 ## Implementation sources
 
@@ -19,6 +19,12 @@ Verified on 17 November 2026. This is a source inventory for the implementation 
 - Storyboards reuse PawPal's own SVG component and scripted application responses. They do not reproduce third-party participant data or images.
 - Codex assistance is described with concrete checks and changes in README; it is not a substitute for responsibility for submitted claims and references.
 
-## Not yet supplied
+## Course materials and later report sources
 
-The actual A1 bibliography, Weeks 1–4 materials and lecturer feedback remain absent from the inspected project files. Add exact references only after those materials are supplied and checked. Do not invent sources, page numbers, lecturer comments, results or first-person learning reflections.
+The actual A1 review and local course slides were subsequently read for the report. Relevant material includes Week 1 Lecture 03 on capabilities and mixed initiative, Week 2 Lecture 06 on signifiers, feedback and agency, Week 4 Lecture 10 on context budgeting, and Week 4 Lecture 12 on the model–system boundary. These private lecture files are not redistributed. Specific lecturer feedback was not found.
+
+The report connects three sources actually cited in A1 to implementation choices:
+
+- De Freitas, J. et al. (2025, advance online publication; 2026 journal issue). *AI Companions Reduce Loneliness*. [Primary article DOI](https://doi.org/10.1093/jcr/ucaf040). Feeling heard and momentary loneliness outcomes do not establish improved offline relationships for PawPal.
+- Chandra, M. et al. (2025). *Longitudinal Study on Social and Emotional Use of AI Conversational Agent*. [arXiv preprint](https://arxiv.org/abs/2504.14112). The exploratory five-week study concerns attachment and perceptions; it is not evidence of PawPal's efficacy.
+- Zhang, R. et al. (2025). *The Dark Side of AI Companionship: A Taxonomy of Harmful Algorithmic Behaviors in Human-AI Relationships*. [Primary article DOI](https://doi.org/10.1145/3706598.3713429). Relational and privacy risks inform boundaries without proving those boundaries prevent harm.

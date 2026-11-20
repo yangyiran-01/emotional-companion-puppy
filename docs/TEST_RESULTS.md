@@ -1,68 +1,77 @@
-# PawPal 开发者自测记录
+# PawPal developer test record
 
-日期：2026-11-17，Europe/London。环境：macOS、Node v23.11.0、npm 10.9.2、Chrome。当前未配置 OpenAI Key；用户要求先测试 Demo。
+Original checks: 17 November 2026, Europe/London. Environment: macOS, Node v23.11.0, npm 10.9.2 and Chrome. No OpenAI key was configured; the user requested Demo testing first. Later documentation checks are dated separately below.
 
-## 已执行命令
+## Commands executed on 17 November
 
-| 检查 | 实际结果 |
+| Check | Actual result |
 | --- | --- |
-| `npm run check` | 通过；49 tests / 49 pass / 0 fail / 0 skipped；随后 TypeScript 与 Vite 生产构建成功 |
-| `npm audit --registry=https://registry.npmjs.org --json` | 官方接口返回 0 个已知漏洞；不是全面安全审计 |
-| Git 忽略规则 | `.env`、`.env.local`、`node_modules`、`dist` 被忽略；空 `.env.example` 可提交 |
-| 静态隐私检查 | 前端无 API Key、持久存储或 HTML 注入入口；服务端只输出启动状态，不记录聊天内容 |
-| 本地架构 SVG | 已渲染并检查六个模块、状态标签及完整布局；FigJam 同步请求仍被 Starter 调用额度拒绝 |
+| `npm run check` | Passed: 49 tests, 49 pass, 0 fail, 0 skipped; TypeScript checking and the Vite production build then succeeded |
+| `npm audit --registry=https://registry.npmjs.org --json` | Official registry returned zero known vulnerabilities; this was not a comprehensive security audit |
+| Git ignore rules | `.env`, `.env.local`, `node_modules` and `dist` are ignored; the empty `.env.example` can be committed |
+| Static privacy inspection | No frontend key, persistent storage or HTML injection entry point; the server prints startup status without chat content |
+| Local architecture SVG | Rendered and inspected for six modules, status labels and complete layout; the FigJam update remained blocked by the Starter quota |
 
-构建有两条来自 Zod 依赖注释的 Rollup PURE annotation 警告；构建成功，注释被移除，不是应用类型错误。没有隐藏失败或把警告改写为无警告。
+The build produced two Rollup PURE-annotation warnings from Zod dependency comments. It succeeded after the comments were removed by the bundler; these were not application type errors. The warnings were not described as an entirely warning-free build.
 
-## 自动化覆盖范围
+## Automated coverage
 
-- 中英文四种表情、少量否定与混合情绪、压力追问和不明确文本默认 Calm。
-- 普通压力不弹社交卡；孤独可触发；offered / accepted / declined 防止主动重复；文字拒绝和主动再次请求。
-- 当前与近期未解除的明确安全线索优先，跳过模型与普通卡片；窄范围明确安全表达解除路由标记。
-- Demo 多轮上下文与来源标记；未配置 AI 返回错误，不自动切换 Demo。
-- 使用受控测试替身验证 OpenAI HTTP 请求结构、服务端授权、`store: false`、超时、非完整结果与边界检查。**这些不是实际 OpenAI 模型测试。**
-- HTTP 输入校验、空白/超长/非法上下文、JSON 格式、Origin、限流、缓存与响应头。
-- 客户端拒绝选择传递到下一请求；Accept 不调用外部联系接口；失败保留原消息、重试不重复、编辑恢复草稿；新会话与模式切换防止过期回复写回。
+- Four expressions in English and Chinese, limited negation and mixed emotion, pressure follow-ups and a Calm fallback for unclear text.
+- No social card for ordinary stress; loneliness eligibility; suppression after offered, accepted or declined states; textual refusal and explicit re-request.
+- Priority for current or recent unresolved explicit safety cues, bypassing the model and ordinary cards; narrow current-safety statements clear the routing flag.
+- Multi-turn Demo context and source labels; unconfigured AI returns an error without silently falling back to Demo.
+- Controlled test doubles verify OpenAI HTTP request shape, server-side authorisation, `store: false`, timeouts, incomplete responses and boundary checks. **These are not live OpenAI model tests.**
+- HTTP validation of blank, oversized or invalid input and context; JSON format, Origin, rate limits, caching and response headers.
+- Client refusal is passed to the next request; Accept calls no external contact endpoint; failures retain the message; retry avoids duplication; Edit restores the draft; new conversations and mode changes discard stale replies.
 
-调试记录：首次新增客户端重试用例因 React 测试的异步刷新方式失败；改用 async `act` 刷新立即失败的 HTTP 响应后，单独运行与完整 49 项运行均通过。未以删除断言或跳过测试掩盖该问题。
+Debugging note: the first added client retry case failed because of asynchronous React-test flushing. Using async `act` to flush the immediate HTTP failure made both the isolated case and all 49 tests pass. Assertions were not removed or skipped to conceal the failure.
 
-## 浏览器实际观察
+## Browser observations on 17 November
 
-| 项目 | 观察结果 |
+| Item | Observation |
 | --- | --- |
-| 页面打开与粉紫 UI | Chrome 普通标签页成功打开，桌面两栏显示，输入与身份提示可见 |
-| 压力倾诉与多轮 | 英文压力消息及截止日期追问返回 Concerned；中文压力消息返回中文支持；无社交卡 |
-| 开心分享 | Happy、积极回复、同一小狗形象 |
-| 孤独建议 | Concerned，支持回复后显示 Accept / Not now |
-| Not now 后继续 | 出现尊重决定的反馈，Calm；再表达孤独不重复弹卡 |
-| 用户主动再请求 | 拒绝后明确请求社交建议可以重新显示卡片 |
-| Accept | 显示下一步、自主决定和 Nothing is sent，Encouraging |
-| 四状态视觉 | Calm、Happy、Concerned、Encouraging 在应用中均观察到，共用奶油色垂耳围巾狗 |
-| 未配置 Key | 模式菜单 AI mode 禁用并显示 Needs a server API key |
-| 新会话 | 确认弹窗后历史清除，回到 Calm 和初始问候 |
-| 移动模拟 | Chrome 390 × 844 模拟中检查文字换行、紧凑角色卡与输入区，无明显横向溢出；长记录可滚动 |
+| Opening and pink/lavender UI | Ordinary Chrome tab opened successfully; desktop two-column layout, input and identity notice were visible |
+| Pressure and multiple turns | English pressure and deadline follow-ups returned Concerned; Chinese pressure received Chinese support; no social card |
+| Good news | Happy, positive reply and the same puppy |
+| Loneliness | Concerned, followed by an optional Accept / Not now card after support |
+| Continuing after Not now | Respectful feedback and Calm; further loneliness did not repeat the card |
+| Explicit re-request | An explicit request after refusal could reopen the card |
+| Accept | Next step, user control and Nothing is sent were visible; Encouraging |
+| Four expressions | Calm, Happy, Concerned and Encouraging were all observed, sharing the cream puppy, floppy ears and scarf |
+| Missing key | AI mode was disabled with Needs a server API key |
+| New conversation | Confirmation cleared history and restored Calm and the welcome message |
+| Mobile emulation | Chrome 390 × 844 checks covered wrapping, compact character card and input; no obvious horizontal overflow; long history could scroll |
 
-## 尚未通过或待复查
+## Unverified or requiring rechecking
 
-- 未配置真实 Key，真实 AI 多轮、自然度、延迟、费用和错误端到端行为没有验证。
-- 浏览器离线测试未完成：DevTools 设置与原生控件操作不稳定，未得到可靠的错误 UI 结果。已关闭该临时测试标签页，留下新的普通预览页。错误处理与重试通过自动化客户端和 API 测试，不能等同于完整浏览器离线测试。
-- 移动模拟的最新反馈在桌面切换尺寸后曾被裁切；增加 ResizeObserver 滚动处理，最后一次修改尚未完成移动浏览器复查。
-- 未测试实体手机键盘、其他浏览器、屏幕阅读器或正式 WCAG 审计。没有声称所有无障碍要求已通过。
-- 英文静态 UI，中文输入/回复可用；复杂否定、比喻、讽刺、危机漏判和模板重复仍是已知局限。
-- Figma 可点击原型、开发后 FigJam 图同步因额度未完成。本地实现图与代码为当前依据。
-- 用户体验与最终项目验收待用户亲自测试，不能由本记录替代。
+- Live AI conversation, naturalness, latency, cost and end-to-end model errors have not been validated with a real key.
+- The full browser offline test was not completed: DevTools and native-control interaction was unreliable, so no dependable error-UI observation was obtained. The temporary test tab was closed and a fresh normal preview left open. Automated client/API recovery checks are not a substitute for that browser test.
+- Latest feedback was clipped after switching viewport sizes. ResizeObserver-based scrolling was added; that final change still needs mobile browser rechecking.
+- Physical-phone keyboards, other browsers, screen readers and a formal WCAG audit have not been tested. No complete accessibility conformance is claimed.
+- The static UI is English; Chinese input and replies work. Complex negation, metaphor, sarcasm, missed crisis cues and repetitive templates remain limitations.
+- Clickable Figma connections and the post-development FigJam update remain blocked by quota. Current code and the local implementation diagram are authoritative.
+- User experience testing and final acceptance await the user's own review.
 
-## 作业交付材料补充检查（2026-11-17）
+## Assignment evidence checks on 17 November
 
-- `npm run evidence:build`：通过；三张 SVG、10 格、HTML 查看页与回放数据生成成功；压力/开心/孤独及拒绝后不重复建议的回放断言通过；没有模型调用。
-- 三张 SVG 已进行 XML 检查和完整渲染检查，文字、角色和建议按钮没有明显裁切或重叠。HTML 查看页的打印成 PDF 效果没有验证；交付以 SVG 为准。
-- `npm run readme:check`：两个计数用例通过；README prose 字数与顶部标注一致。排除代码、命令、URL 与 Markdown 语法，保留标题、列表和表格正文。
-- 角色 SVG `<title>` 调整后再次运行 `npm run check`：49 项应用测试全部通过，TypeScript 与 Vite 构建成功。依赖注释警告与上文一致。
-- 新增材料属于作业开发证据，不增加应用核心功能，也不构成用户验收、治疗效果或真实用户研究结果。
+- `npm run evidence:build` passed: three SVGs, ten panels, an HTML viewer and replay data were generated. Assertions covered pressure, happiness, loneliness and no repeated suggestion after refusal; no model was called.
+- All three SVGs passed XML checks and full rendering inspection, without obvious clipping or overlap in text, character or controls. Browser print-to-PDF of the HTML viewer was not verified; the SVGs are the evidence files.
+- `npm run readme:check` passed two counting tests and matched the declared prose count. Counting excludes code, commands, URLs and Markdown syntax, while retaining headings, list text and table text.
+- After the puppy SVG `<title>` change, `npm run check` again passed all 49 application tests, TypeScript checking and the production build. Dependency warnings remained as described above.
+- These materials add development evidence, not another core feature, user acceptance, therapeutic findings or participant research.
 
-## GitHub 同步前复查（2026-11-17）
+## Pre-upload checks on 17 November
 
-- 再次运行 `npm run check`：49 项应用测试通过，TypeScript 检查及生产构建成功；依赖 PURE 注释警告仍与前述一致。
-- README 合并远程简介后，`npm run readme:check` 的两个计数用例和字数一致性检查通过。
-- 本地文档链接检查无缺失，README 冲突标记已清除。已追踪文件未包含 `.env`、依赖或构建结果；凭据模式检查未发现疑似真实 Key。
-- GitHub 公开元数据确认用户提供的仓库可见性为 public、默认分支为 main。源码推送结果需以远程提交哈希核实，不等于部署上线或用户最终验收。
+- `npm run check` again passed 49 application tests, TypeScript checking and the production build. The dependency annotation warnings remained.
+- After merging the remote introduction, `npm run readme:check` passed both counting tests and verified the README count.
+- Local documentation links resolved and conflict markers were absent. Tracked files excluded `.env`, dependencies and build output; credential-pattern inspection found no suspected real key.
+- Public GitHub metadata confirmed repository visibility and default branch `main`. Remote and local hashes must be checked to verify an upload; source publication is not deployment or final acceptance.
+
+## English documentation checks on 20 November
+
+- Translated the architecture, provenance, development record, GitHub instructions, logic, user-test guide, developer-test record and historical design review into English.
+- Scanned tracked text files: Chinese characters remain only in bilingual runtime patterns/replies and test fixtures, not in documentation, interface instructions or explanatory comments. Runtime source files were not changed.
+- Local Markdown link checks found no missing file targets. `git diff --check` passed.
+- `npm run readme:count` updated the declared prose count to 798. `npm run readme:check` passed both counting tests and verified the declared count.
+- This documentation-only revision did not rerun the application suite or browser checks. The 49 application-test results above remain dated 17 November; no new functional validation is claimed.
+- The local Word report, its temporary lock file and private course materials are excluded from this documentation update.

@@ -1,6 +1,6 @@
 # Emotional Companion Puppy — PawPal
 
-**Prose Word Count: 784**
+**Prose Word Count: 798**
 
 Count includes headings, list text and table text; excludes this notice, fenced code, inline code, URLs and Markdown syntax. Run `npm run readme:count` to update.
 
@@ -28,6 +28,8 @@ Public repository: [Emotional Companion Puppy](https://github.com/yangyiran-01/e
 | Node test runner, Testing Library | Logic, HTTP and client state checks |
 
 The configured model defaults to `gpt-4.1-mini`; no real model response has been validated for this version. Demo does not call a model.
+
+Repository documentation is in English. Chinese source strings and test fixtures support bilingual conversations.
 
 ## Installation and Running Instructions
 

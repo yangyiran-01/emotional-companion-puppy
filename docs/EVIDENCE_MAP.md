@@ -1,4 +1,6 @@
-# Evidence inventory — not report prose
+# Evidence inventory
+
+Update on 20 November 2026: this inventory originated before report preparation. The user subsequently supplied the local course-folder path, and Assignment 1 and lecture files were used for the English Word report. Private course materials and the Word file remain local. The candidate mappings and missing-material notes below describe the original evidence-preparation stage, not the availability of materials after report preparation.
 
 This working inventory links real implementation evidence to items that must later be checked against the actual Weeks 1–4 materials and Assignment 1. It is not a Design Rationale draft. No lecture content, A1 references, lecturer feedback or learning reflection has been invented.
 

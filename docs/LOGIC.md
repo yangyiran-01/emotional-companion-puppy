@@ -1,39 +1,43 @@
-# 情绪与建议逻辑
+# Emotion and suggestion logic
 
-这是对代码行为的说明，不是心理诊断或有效性研究。
+This documents code behaviour, not psychological diagnosis or an effectiveness study.
 
-## 请求和会话
+## Requests and conversation state
 
-每条消息由前端向 `/api/chat` 发送当前文本、最多 12 条近期消息、模式和会话建议选择。当前输入 1–1500 字符；上下文单条最多 2500 字符。前后端均使用 Zod 检查协议。聊天只保留在当前标签页内存；刷新、切换模式和新会话会清除。
+For each turn, the client sends the current text, at most twelve recent messages, mode and conversation-level suggestion choice to `/api/chat`. Current input is limited to 1–1,500 characters; each context message is limited to 2,500 characters. Both client and server validate the protocol with Zod. Chat exists only in the current tab's memory; refresh, mode changes and new conversations clear it.
 
-## 情绪映射
+## Emotion mapping
 
-`server/logic/emotion.ts` 对英文和中文关键短语进行规则匹配：
+`server/logic/emotion.ts` matches English and Chinese cue phrases using explicit rules:
 
-1. 先判断明确安全信号，进入 Concerned 和独立安全回应。
-2. 规范少量否定表达，例如 not lonely、不觉得孤独；not happy 映射到负面线索。
-3. 孤独、压力、疲惫、担忧等优先 Concerned，包括同一条消息里的混合情绪。
-4. 近期压力之后的作业、截止日期和部分追问保持 Concerned。
-5. 不确定、害怕尝试、缺乏信心 → Encouraging。
-6. 开心、完成项目、好消息 → Happy。
-7. 其他 → Calm。
+1. Explicit safety cues take priority, selecting Concerned and a separate safety response.
+2. A small set of negations is normalised, including equivalents of “not lonely”; “not happy” becomes a distress cue.
+3. Loneliness, stress, fatigue and worry select Concerned, including mixed-emotion messages.
+4. Assignment, deadline and some follow-up references after recent distress retain Concerned.
+5. Uncertainty, reluctance to try or low confidence select Encouraging.
+6. Happiness, completing a project or good news select Happy.
+7. Other input defaults to Calm.
 
-返回 `emotionReason` 解释规则原因，不在控制台记录原始输入。宠物状态由 `useConversation` 控制，`Pet.tsx` 共用一套身体结构：Calm 呼吸眨眼、Happy 摇尾轻跳、Concerned 歪头与关切眉形、Encouraging 抬爪点头。减少动态效果偏好会关闭非必要动画。
+The returned `emotionReason` identifies the matching rule; raw input is not logged to the console. `useConversation` controls the expression. `Pet.tsx` shares one body across all states: Calm breathes and blinks; Happy wags and gently bounces; Concerned tilts its head and changes its brows; Encouraging raises a paw and nods. A reduced-motion preference disables nonessential animation.
 
-## 建议门控与选择
+## Suggestion eligibility and choice
 
-`server/logic/social.ts` 仅在明确孤独、非常窄的孤独追问，或用户主动索要社交建议时生成卡片。普通作业压力和一般难过不触发。先显示情绪支持，再显示可选卡片。
+`server/logic/social.ts` produces a card only for explicit loneliness, narrowly defined loneliness follow-ups or an explicit request for social advice. Ordinary study stress and general sadness do not qualify. Emotional support is displayed before the optional card.
 
-会话选择为 available / offered / accepted / declined。offered、accepted 和 declined 都不会自动再次弹卡。Not now 与文字拒绝写入 declined；只有明确再次请求建议才可重新展示。Accept 展示一个可自行决定是否执行的小步骤；两个按钮都只改变本地状态，不发邮件、消息或外部联系请求。
+Conversation choices are `available`, `offered`, `accepted` and `declined`. Offered, accepted and declined states suppress further proactive cards. Not now and textual refusal set `declined`; only an explicit later request reopens suggestions. Accept reveals one small step that the person may choose to take. Both buttons change local state only; neither sends email, messages or external contact requests.
 
-## 安全与失败
+## Safety and failure handling
 
-明确自伤线索优先于普通聊天和建议。近期未解除的明确风险也保留安全路由。固定安全回应提供支持、即时危险时的当地急救或急诊途径、身边可信任的人；不捏造热线号码，不调用普通模型，也不发普通社交卡片。用户明确当前安全后解除窄范围上下文标记。规则无法全面识别危机，也可能误判引用、比喻或否定。
+Explicit self-harm cues override ordinary chat and suggestions. Recent unresolved explicit risk also retains the safety route. Fixed guidance offers support, directs immediate danger to local emergency services or an emergency department, and suggests a trusted person nearby. It does not invent helpline numbers, invoke the ordinary model or display an ordinary social card. An explicit statement of current safety clears the narrow context flag. These rules cannot comprehensively detect crises and may misinterpret quotations, metaphors or negation.
 
-真实 AI 使用固定系统边界和简单输出规则检查，拒绝部分依赖语言与绕过社交卡片的建议。此检查不完善，可能漏判或误拦截；失败返回可重试错误，不用脚本冒充 AI。服务端 20 秒模型超时，前端 25 秒请求超时。失败保留用户消息，可 Retry 或 Edit；重试不重复添加用户气泡。
+AI mode uses fixed system boundaries and simple output checks for some dependency language and social advice that bypasses the card. These checks can miss inappropriate content or reject acceptable text. Failures return a retryable error rather than presenting scripted text as AI output. The server model timeout is twenty seconds; the client request timeout is twenty-five seconds. Failed user messages are retained for Retry or Edit; retry does not duplicate the user bubble.
 
-## 隐私边界
+## Privacy boundaries
 
-Demo 文本只经本地服务处理。AI 模式通过服务端把当前消息与近期上下文发送给 OpenAI。`store: false` 不等于供应商零保留；详见 README 的数据政策链接。应用没有聊天日志、数据库、浏览器持久存储或分析追踪。限流只维护短期 IP 计数。当前服务仅作为本地原型运行。
+Demo text is processed by the local service. AI mode sends the current message and recent context to OpenAI through the server. `store: false` does not guarantee zero provider retention; see the data-policy link in the README. The application has no chat logs, database, persistent browser storage or analytics. Rate limiting maintains short-lived IP counters. This version runs as a local prototype.
 
-实现参考：[OpenAI Responses API](https://developers.openai.com/api/reference/resources/responses/methods/create)、[OpenAI 数据控制](https://developers.openai.com/api/docs/guides/your-data)；安全回应的基本急助方向参考 [NHS：Help for suicidal thoughts](https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/behaviours/help-for-suicidal-thoughts/)。这些来源不构成本系统安全检测有效性的证明。
+Implementation references: [OpenAI Responses API](https://developers.openai.com/api/reference/resources/responses/methods/create) and [OpenAI data controls](https://developers.openai.com/api/docs/guides/your-data). The general emergency-help directions refer to [NHS help for suicidal thoughts](https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/behaviours/help-for-suicidal-thoughts/). These sources do not establish the effectiveness of this system's safety detection.
+
+## Repository language
+
+Documentation and explanatory text are in English. Chinese literals in source code are bilingual input patterns and reply data; Chinese test fixtures verify that functionality. They are not untranslated repository instructions.
